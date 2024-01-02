@@ -16,6 +16,7 @@ for (
       (modalImg.src = this.src),
       (modalImg.alt = this.alt);
   };
+
 function zoomin() {
   var e = document.getElementById("geeks"),
     t = e.clientHeight;
