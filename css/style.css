@@ -351,3 +351,8 @@ details {
 .lazy.loaded {
   transition: opacity 0.3s;
 }
+
+
+.custom-shadow{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
