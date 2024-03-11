@@ -6,6 +6,10 @@
   font-family: "Lato", sans-serif;
 }
 
+span {
+  font-weight: 800;
+}
+
 /* General styles */
 .btn-notif-background-color {
   background-color: #272142;
@@ -40,7 +44,13 @@
   line-height: 23.5px;
   letter-spacing: -0.48px;
 }
-
+li {
+  letter-spacing: -0.2px;
+  line-height: 23.5px;
+}
+.rules-shadow-custom {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 .iconColor,
 .btn-color {
   color: #1d267d;
@@ -81,8 +91,7 @@
 
 .facilityCard {
   position: relative;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 /* .overlay {
