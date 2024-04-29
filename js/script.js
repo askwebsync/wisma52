@@ -1,44 +1,83 @@
-const button = document.querySelector("#menu-button"),
-  menu = document.querySelector("#menu");
-button.addEventListener("click", () => {
-  menu.classList.toggle("hidden");
+document.addEventListener("DOMContentLoaded", function () {
+  const navbarItems = document.querySelectorAll(".navbar-item");
+
+  // Add click event listener to each navbar item
+  navbarItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // Remove active class from all navbar items
+      navbarItems.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      // Add active class to the clicked navbar item
+      this.classList.add("active");
+    });
+  });
 });
 
-const modal = document.getElementById("myModal"),
-  modalImg = document.getElementById("img01");
-for (
-  var img = document.querySelectorAll(".thumbnail"), i = 0;
-  i < img.length;
-  i++
-)
-  img[i].onclick = function () {
-    (modal.style.display = "block"),
-      (modalImg.src = this.src),
-      (modalImg.alt = this.alt);
-  };
+// Function to toggle menu visibility
+function toggleMenu() {
+  const menu = document.querySelector("#menu");
+  menu.classList.toggle("hidden");
+}
 
-function zoomin() {
-  var e = document.getElementById("geeks"),
-    t = e.clientHeight;
-  e.style.height = t + 40 + "px";
+// Event listener for menu button click
+const menuButton = document.querySelector("#menu-button");
+menuButton.addEventListener("click", toggleMenu);
+
+// Function to open modal and display image
+function openModal() {
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("img01");
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  modalImg.alt = this.alt;
 }
-function zoomout() {
-  var e = document.getElementById("geeks"),
-    t = e.clientHeight;
-  e.style.height = t - 40 + "px";
+
+// Event listeners for thumbnail click to open modal
+const thumbnails = document.querySelectorAll(".thumbnail");
+thumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener("click", openModal);
+});
+
+// Function to zoom in on an element
+function zoomIn() {
+  const element = document.getElementById("geeks");
+  const height = element.clientHeight;
+  element.style.height = height + 40 + "px";
 }
-function reveal() {
-  for (var e = document.querySelectorAll(".reveal"), t = 0; t < e.length; t++) {
-    var l,
-      n = window.innerHeight;
-    e[t].getBoundingClientRect().top < n - 150
-      ? e[t].classList.add("active")
-      : e[t].classList.remove("active");
-  }
+
+// Function to zoom out on an element
+function zoomOut() {
+  const element = document.getElementById("geeks");
+  const height = element.clientHeight;
+  element.style.height = height - 40 + "px";
 }
+
+// Function to reveal elements when scrolled into view
+function revealElements() {
+  const elements = document.querySelectorAll(".reveal");
+  const windowHeight = window.innerHeight;
+  elements.forEach((element) => {
+    const rect = element.getBoundingClientRect();
+    if (rect.top < windowHeight - 150) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+  });
+}
+
+// Event listener for modal click to close modal
+const modal = document.getElementById("myModal");
 modal.onclick = function () {
-  (img.className += " out"),
-    setTimeout(function () {
-      (modal.style.display = "none"), (img01.className = "modal-content");
-    }, 400);
+  const img = document.querySelector(".modal-content");
+  img.className += " out";
+  setTimeout(function () {
+    modal.style.display = "none";
+    img01.className = "modal-content";
+  }, 400);
 };
+
+// Event listener for window scroll to reveal elements
+window.addEventListener("scroll", revealElements);
