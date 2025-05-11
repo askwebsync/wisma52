@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow access to common sensitive directories if they exist
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /api/
+
+# Sitemap location (replace with your actual sitemap if available)
+Sitemap: https://wisma52.vercel.app/sitemap.xml

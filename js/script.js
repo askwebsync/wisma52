@@ -29,7 +29,7 @@ menuButton.addEventListener("click", toggleMenu);
 function openModal() {
   const modal = document.getElementById("myModal");
   const modalImg = document.getElementById("img01");
-  modal.style.display = "block";
+  modal.style.display = "flex";
   modalImg.src = this.src;
   modalImg.alt = this.alt;
 }
@@ -81,3 +81,11 @@ modal.onclick = function () {
 
 // Event listener for window scroll to reveal elements
 window.addEventListener("scroll", revealElements);
+
+// window.addEventListener("load", function () {
+//   document.getElementById("loading-screen").style.display = "none";
+// });
+
+window.addEventListener("load", function () {
+  document.getElementById("loading-screen").style.display = "none";
+});
